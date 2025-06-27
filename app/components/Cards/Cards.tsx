@@ -1,7 +1,5 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import Image from 'next/image'
-import Search from '@/public/images/search.png'
 
 type Countries = {
     flags: { png: string }
@@ -15,7 +13,6 @@ const Cards = () => {
     const [countries, setCountries] = useState<Countries[]>([])
     const [filteredCountries, setFilteredCountries] = useState<Countries[]>([])
     const [searcher, setSearcher] = useState('');
-    const [filter, setFilter] = useState('');
     const [filterRegion, setFilterRegion] = useState('');
     const [filterPop, setFilterPop] = useState('');
 
