@@ -79,7 +79,7 @@ const Cards = () => {
                                 className="border p-2 rounded-md text-[#BFB1C1] bg-[#071108]"
                             >
                                 <option value="">Filter by Region</option>
-                                <option value="Africa " >Africa</option>
+                                <option value="Africa" >Africa</option>
                                 <option value="Americas">Americas</option>
                                 <option value="Europe">Europe</option>
                                 <option value="Oceania">Oceania</option>
