@@ -28,7 +28,7 @@ const Cards = () => {
 
                 )
                 const data = await res.json()
-                setCountries(data)
+                setCountries(data.sort((a: Countries, b: Countries) => a.name.common.localeCompare(b.name.common)))
                 //setLoading(false)
             } catch (err) {
                 console.error(err)
@@ -67,11 +67,6 @@ const Cards = () => {
                         placeholder="Search..."
                         className=" border border-black rounded-md p-3 w-full max-w-md shadow-md active:shadow-none text-black"
                     />
-                    {/*<div className='border-1 border-black p-2 rounded-r-md shadow-lg active:shadow-none'>
-                        <button >
-                            <Image src={Search} width={40} height={40} alt='Search' className=''/>
-                        </button>
-                    </div>*/}
                     <section className='md:flex gap-4 hidden'>
                         <div>
                             <select
@@ -107,14 +102,16 @@ const Cards = () => {
             </section>
 
 
-            <div className='p-5 grid md:grid-cols-3 grid-cols-2 gap-5 w-full mt-[80px]'>
+            <div className='p-5 grid md:grid-cols-3 grid-cols-1 gap-5 w-full mt-[80px]'>
                 {filteredCountries.length > 0 ? (filteredCountries.map((country, index) => (
-                    <div key={index} className='text-black bg-[#BFB1C1] p-5 md:p-10 rounded-md'>
+                    <div key={index} className='text-black md:block flex justify-between bg-[#BFB1C1] p-5 md:p-10 rounded-md col-span-1'>
+                        <div>
                         <p className='text-2xl font-bold text-[#071108]'>{country.name.common}</p>
                         <p>Capital: {country.capital}</p>
                         <p>Region: {country.region}</p>
                         <p>Population: {country.population}</p>
-                        <div className='min-h-[100px] min-w-[100px] max-w-[150px] bg-cover mt-3 bg-gray-300 bg-center' style={{ backgroundImage: `url(${country.flags.png})` }}></div>
+                        </div>
+                        <div className='min-h-[75px] min-w-[150px] md:min-w-[100px] md:w-[300px] md:h-[150px] bg-cover mt-3 bg-gray-300 bg-center' style={{ backgroundImage: `url(${country.flags.png})` }}></div>
                     </div>
                 ))) : (<div className=''><p>No country matches your search</p></div>)}
             </div>
