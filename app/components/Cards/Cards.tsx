@@ -16,9 +16,7 @@ const Cards = () => {
     const [filterRegion, setFilterRegion] = useState('');
     const [filterPop, setFilterPop] = useState('');
 
-
-    //const filteredCountries = searcher ? countries.filter((country) => (country.name.common.toLowerCase().includes(searcher.toLowerCase()))) : countries
-
+    
 
     useEffect(() => {
         const fetchDetails = async () => {
